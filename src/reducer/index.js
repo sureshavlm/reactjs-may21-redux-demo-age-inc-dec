@@ -1,4 +1,4 @@
-import { AGE_UP, AGE_DOWN } from "../actions";
+import { AGE_UP, AGE_DOWN, AGE_UP_ASYNC } from "../actions";
 
 
 const initialState = {
@@ -17,7 +17,8 @@ export default function rootReducer(state = initialState, action) {
     const newState = { ...state }; //cloning object into new object using spread operator
 
     switch(action.type) {
-        case AGE_UP:
+
+        case AGE_UP_ASYNC:
             newState.age += action.value;
             //I will not call any API calls in reducer
             break;
@@ -25,6 +26,7 @@ export default function rootReducer(state = initialState, action) {
         case AGE_DOWN:
             newState.age -= action.value;
             break;
+        
     }
 
     return newState;
